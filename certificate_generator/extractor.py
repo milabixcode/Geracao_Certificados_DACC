@@ -9,12 +9,15 @@ from abc import (
 
 # Padrão strategy
 
+
 class BaseExtractor(ABC):
     @abstractmethod
     def extract(self, file_path, identifier) -> List[Certificate]:
         pass
 
+
 # ...
+
 
 class ArquivoNormalExtractor(BaseExtractor):
     def extract(self, file_path, identifier) -> List[Certificate]:
