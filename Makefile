@@ -1,5 +1,10 @@
+run :=poetry run
+
 fmt:
-	poetry run black .
+	$(run) black .
 
 run:
-	poetry run python -m certificate_generator.gera_certificado
+	$(run) python -m certificate_generator.gera_certificado
+
+drive:
+	$(run) python -m certificate_generator.drive
