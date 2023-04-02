@@ -14,6 +14,13 @@ def get_service():
     """Shows basic usage of the Drive v3 API.
     Prints the names and ids of the first 10 files the user has access to.
     """
+    creds = get_creds()
+
+    service = build("drive", "v3", credentials=creds)
+    return service
+
+
+def get_creds():
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -30,6 +37,4 @@ def get_service():
         # Save the credentials for the next run
         with open("token.json", "w") as token:
             token.write(creds.to_json())
-
-    service = build("drive", "v3", credentials=creds)
-    return service
+    return creds
