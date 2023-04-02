@@ -2,6 +2,11 @@
 
 Ferramenta para vasculhar planilhas e gerar todos os certificados de alguém que estuda no CC na uff.
 
+## Como usar
+
+Para ter acesso às planilhas do Drive, é necessário entrar em um projeto do Google Cloud com permissão para
+acesso à API do Drive. O passo a passo dessa configuração pode ser encontrado no [Quickstart de Python](https://developers.google.com/drive/api/quickstart/python?hl=en).
+
 ## TODO
 
 - Considerar o uso de https://github.com/tanaikech/getfilelistpy para obter todas as planilhas da pasta de `Eventos` do DACC
