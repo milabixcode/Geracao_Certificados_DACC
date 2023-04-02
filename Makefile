@@ -4,7 +4,7 @@ fmt:
 	$(run) black .
 
 run:
-	$(run) python -m certificate_generator.gera_certificado
+	$(run) python -m certificate_generator
 
 drive:
 	$(run) python -m certificate_generator.drive
