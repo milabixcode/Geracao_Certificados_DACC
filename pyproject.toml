@@ -13,6 +13,7 @@ docxtpl = "^0.16.5"
 google-api-python-client = "^2.81.0"
 google-auth-httplib2 = "^0.1.0"
 google-auth-oauthlib = "^1.0.0"
+getfilelistpy = "^1.0.7"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"

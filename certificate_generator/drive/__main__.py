@@ -1,36 +1,17 @@
-from googleapiclient.errors import HttpError
-from .setup import get_service
+from certificate_generator.drive.spreadsheet import select_spreadsheets
+from .file_tree import store_file_tree, load_file_tree
 
 
-def main():
-    service = get_service()
+events_folder_id = "1kayHxaxggYsOWoFF2SJHrBAjK-kTDnfK"
+file_tree_file = "file-tree.json"
 
-    try:
-        # Call the Drive v3 API
-        results = (
-            service.files()
-            .list(
-                q="mimeType='application/vnd.google-apps.spreadsheet' and '1hnscQ5hzamzerYVoDduOGtYvIssNkqKw' in parents",
-                fields="files(id, name, mimeType)",
-            )
-            .execute()
-        )
-        items: list = results.get("files", [])
+# TODO make this run based on parameters passed on cli
+# For now, turn this to `True`` to refresh local metadata
+if False:
+    store_file_tree(events_folder_id, file_tree_file)
 
-        if not items:
-            print("No files found.")
-            return
-        print("Files:")
-        for item in items:
-            print("{0} ({1}) {2}".format(item["name"], item["id"], item["mimeType"]))
+file_tree = load_file_tree(file_tree_file)
+spreadsheets = select_spreadsheets(file_tree)
 
-        # dacc = next(filter(lambda item: item["name"] == "DACC", items))
-        # dacc_media = service.files().get_media(fileId=dacc["id"])
-        # print(inspect.getmembers(dacc_media))
-
-    except HttpError as error:
-        # TODO(developer) - Handle errors from drive API.
-        print(f"An error occurred: {error}")
-
-
-main()
+print(len(spreadsheets))
+print(file_tree["totalNumberOfFiles"])
