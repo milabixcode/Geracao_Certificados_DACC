@@ -9,9 +9,7 @@ acesso à API do Drive. O passo a passo dessa configuração pode ser encontrado
 
 ## TODO
 
-- Considerar o uso de https://github.com/tanaikech/getfilelistpy para obter todas as planilhas da pasta de `Eventos` do DACC
 - Avaliar se vai dar para baixar as planilhas como CSV ou precisaremos de uma lib para trabalhar com planilhas
-
 
 - Normalizar o máximo de planilhas que der com base nos dados das entidades
 - Strategies
@@ -24,6 +22,7 @@ acesso à API do Drive. O passo a passo dessa configuração pode ser encontrado
 - Usar `poetry` e `pyenv`
 - Pensar em como obter as planilhas do drive de forma fácil
   - vamos usar a API do Google Drive para baixar os documentos
+- Feita a listagem das planilhas da árvore de arquivos da pasta de Eventos
 
 ## Futuro
 
