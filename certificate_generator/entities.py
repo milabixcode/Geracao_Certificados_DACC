@@ -11,7 +11,7 @@ class Activity(BaseModel):
     name: str
     event: Event
     kind: str
-    hours_granted: float
+    hours_granted: str
 
 
 class Student(BaseModel):
