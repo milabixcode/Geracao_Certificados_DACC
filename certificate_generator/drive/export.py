@@ -1,7 +1,7 @@
 import io
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaIoBaseDownload
-from .__main__ import get_service
+from .setup import get_service
 
 
 def export(file_id):
@@ -16,7 +16,7 @@ def export(file_id):
 
         # pylint: disable=maybe-no-member
         request = service.files().export_media(
-            fileId=file_id, mimeType="application/pdf"
+            fileId=file_id, mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
         file = io.BytesIO()
         downloader = MediaIoBaseDownload(file, request)

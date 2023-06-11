@@ -1,3 +1,5 @@
+from pathlib import Path
+from certificate_generator.drive.export import export
 from certificate_generator.drive.spreadsheet import select_spreadsheets
 from .file_tree import store_file_tree, load_file_tree
 
@@ -15,3 +17,11 @@ spreadsheets = select_spreadsheets(file_tree)
 
 print(len(spreadsheets))
 print(file_tree["totalNumberOfFiles"])
+
+for spreadsheet in spreadsheets:
+    sheet_path = f"spreadsheets/{spreadsheet['name']}.xlsx"
+    Path(sheet_path).write_bytes(export(spreadsheet["id"]))
+
+# import openpyxl
+# wb = openpyxl.load_workbook(sheet_path)
+# print(wb.worksheets[0]['C1'].value)
